@@ -1,0 +1,21 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  border: 8px solid #6a5acd;
+  box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+  border-radius: 20px;
+}
+
+.title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Brush Script MT", cursive;
+  font-weight: bold;
+  font-size: 70px;
+}
+
+.footer {
+  margin-top: 20px;
+}

@@ -1,0 +1,48 @@
+.btn {
+  background-image: linear-gradient(
+    to right,
+    #695acdd1 0%,
+    #d64545cb 51%,
+    #b993d6d8 100%
+  );
+  margin: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  border: none;
+  margin: 0 auto;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+}
+
+.btn:hover,
+.btn:focus {
+  background-position: right center;
+  color: black;
+  text-decoration: none;
+}
+
+.text {
+  background-image: linear-gradient(
+    to right,
+    #b993d6d6 0%,
+    #8ca6dbd7 51%,
+    #695acda4 100%
+  );
+  margin: 10px;
+  padding: 15px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: rgb(41, 91, 49);
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  font-weight: bold;
+}
