@@ -1,7 +1,11 @@
 import css from "./Form.module.css";
 
-export default function Form({ onAdd }) {
-  const handleSubmit = (e) => {
+type FormProps = {
+  onAdd: (task: { id: string | number; text: string }) => void;
+};
+
+export default function Form({ onAdd }: FormProps) {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     const taskText = e.target.elements.text.value; // доступ до значення поля
     if (taskText.trim()) {

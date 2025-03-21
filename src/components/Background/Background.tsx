@@ -2,7 +2,11 @@ import css from "./Background.module.css";
 import { useEffect } from "react";
 import bgColors from "../../data/background.json";
 
-const Background = ({ currentColor, onChangeColor }) => {
+type BackgroundProps = {
+  currentColor: string;
+  onChangeColor: (color: string) => void;
+};
+const Background = ({ currentColor, onChangeColor }: BackgroundProps) => {
   useEffect(() => {
     document.body.style.backgroundColor = currentColor;
   }, [currentColor]);

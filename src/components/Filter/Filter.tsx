@@ -1,7 +1,12 @@
 import css from "./Filter.module.css";
 import { CiSearch } from "react-icons/ci";
 
-export default function Filter({ value, onFilter }) {
+type FilterProps = {
+  value: string;
+  onFilter: (filterText: string) => void;
+};
+
+export default function Filter({ value, onFilter }: FilterProps) {
   return (
     <div className={css.inputContainer}>
       <input
