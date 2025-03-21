@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "color": "white"
+    "color": "Snow"
   },
   {
     "id": 2,
@@ -9,26 +9,26 @@
   },
   {
     "id": 3,
-    "color": "LightSalmon"
+    "color": "NavajoWhite"
   },
   {
     "id": 4,
-    "color": "LightCoral"
-  },
-  {
-    "id": 5,
-    "color": "DarkCyan"
-  },
-  {
-    "id": 6,
-    "color": "Khaki"
-  },
-  {
-    "id": 7,
     "color": "DarkSeaGreen"
   },
   {
+    "id": 5,
+    "color": "Khaki"
+  },
+  {
+    "id": 6,
+    "color": "Beige"
+  },
+  {
+    "id": 7,
+    "color": "Lavender"
+  },
+  {
     "id": 8,
-    "color": "HotPink"
+    "color": "LightPink"
   }
 ]

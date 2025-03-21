@@ -1,4 +1,5 @@
 import css from "./Task.module.css";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 type TaskProps = {
   data: {
@@ -14,7 +15,7 @@ export default function Task({ data: { id, text }, onDelete }: TaskProps) {
       <div className={css.container}>
         <p className={css.text}>{text}</p>
         <button className={css.btn} onClick={() => onDelete(id)}>
-          Delete
+          <RiDeleteBin5Line className={css.dltIcon} />
         </button>
       </div>
     </>

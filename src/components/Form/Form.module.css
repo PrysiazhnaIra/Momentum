@@ -1,33 +1,29 @@
 .form {
-}
-.field {
-}
-.btn {
-  background-image: linear-gradient(
-    to right,
-    #5ecd5ad1 0%,
-    #11622fcb 51%,
-    #5562dcd8 100%
-  );
-  margin: 10px;
-  padding: 10px 20px;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  color: white;
-  box-shadow: 0 0 20px #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #aad19b4f;
   border-radius: 10px;
-  display: block;
+}
+
+.addIcon {
+  width: 30px;
+  height: 30px;
+  color: #477958;
+}
+
+.field {
+  margin-bottom: 0;
+  outline: none;
+}
+
+.btn {
   border: none;
-  margin: 0 auto;
-  font-family: "Courier New", monospace;
-  font-weight: bold;
-  margin-bottom: 20px;
+  background-color: transparent;
+  transition: all 0.2s linear;
 }
 
 .btn:hover,
 .btn:focus {
-  background-position: right center;
-  color: black;
-  text-decoration: none;
+  transform: scale(1.5);
 }

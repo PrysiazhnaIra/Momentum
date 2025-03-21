@@ -10,12 +10,13 @@ import TaskList from "./components/TaskList/TaskList";
 function App() {
   // Ініціалізація tasks
   const [tasks, setTasks] = useState(() => {
-    return JSON.parse(window.localStorage.getItem("tasks")) || initialTasks;
+    const storedTasks = window.localStorage.getItem("tasks");
+    return storedTasks ? JSON.parse(storedTasks) : initialTasks;
   });
 
   // Ініціалізація currentColor
   const [currentColor, setCurrentColor] = useState(() => {
-    return window.localStorage.getItem("backgroundColor") || "#90EE90";
+    return window.localStorage.getItem("backgroundColor") || "#92d192";
   });
 
   const [filter, setFilter] = useState("");
@@ -30,37 +31,55 @@ function App() {
     window.localStorage.setItem("backgroundColor", currentColor);
   }, [currentColor]);
 
-  const handleChangeColor = (color) => {
+  const handleChangeColor = (color: string) => {
     setCurrentColor(color);
   };
 
-  const addTask = (newTask) => {
-    setTasks((prev) => {
+  const addTask = (newTask: any) => {
+    setTasks((prev: any) => {
       return [...prev, newTask];
     });
   };
 
-  const deleteTask = (taskId) => {
-    setTasks((prev) => {
-      return prev.filter((task) => task.id != taskId);
+  const deleteTask = (taskId: any) => {
+    setTasks((prev: any) => {
+      return prev.filter((task: any) => task.id != taskId);
     });
   };
 
-  const filteredTasks = tasks.filter((task) =>
+  const filteredTasks = tasks.filter((task: any) =>
     task.text.toLocaleLowerCase().includes(filter.toLowerCase())
   );
 
+  const currentYear = new Date().getFullYear();
+
   return (
-    <div>
-      <Background
-        currentColor={currentColor}
-        onChangeColor={handleChangeColor}
-      />
-      <h1 className="title">Task Master</h1>
-      <Form onAdd={addTask} />
-      <Filter value={filter} onFilter={setFilter} />
-      <TaskList tasks={filteredTasks} onDelete={deleteTask} />
-      <p className="footer">Vite + React project - IraPrysiazhna</p>
+    <div className="container">
+      <div>
+        <Background
+          currentColor={currentColor}
+          onChangeColor={handleChangeColor}
+        />
+        <h1 className="title">Add a new task or delete the completed one:</h1>
+        <div className="inputWrapper">
+          <Form onAdd={addTask} />
+          <Filter value={filter} onFilter={setFilter} />
+        </div>
+        <TaskList tasks={filteredTasks} onDelete={deleteTask} />
+      </div>
+      <p
+        className="footer"
+        style={{
+          textAlign: "center",
+          padding: "20px",
+          fontSize: "14px",
+          borderTop: "1px solid #ddd",
+          color: "#333",
+          fontFamily: "Arial, sans-serif",
+        }}
+      >
+        © {currentYear} Ira Prysiazhna. All rights reserved.
+      </p>
     </div>
   );
 }

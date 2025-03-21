@@ -12,6 +12,7 @@ export default function Filter({ value, onFilter }: FilterProps) {
       <input
         type="text"
         value={value}
+        placeholder="Search your task..."
         onChange={(e) => onFilter(e.target.value)}
       />
       {!value && <CiSearch className={css.searchIcon} />}
