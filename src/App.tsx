@@ -6,6 +6,7 @@ import Background from "./components/Background/Background";
 import Filter from "./components/Filter/Filter";
 import Form from "./components/Form/Form";
 import TaskList from "./components/TaskList/TaskList";
+import StatusFilter from "./components/StatusFilter/StatusFilter";
 
 function App() {
   // Ініціалізація tasks
@@ -61,6 +62,8 @@ function App() {
           onChangeColor={handleChangeColor}
         />
         <h1 className="title">Add a new task or delete the completed one:</h1>
+        <StatusFilter />
+
         <div className="inputWrapper">
           <Form onAdd={addTask} />
           <Filter value={filter} onFilter={setFilter} />
