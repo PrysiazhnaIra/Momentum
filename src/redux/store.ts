@@ -26,3 +26,7 @@ const rootReducer = (state: any = initialState, action: any) => {
 export const store = configureStore({
   reducer: rootReducer,
 });
+
+// Тип стану всього Redux-стору
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

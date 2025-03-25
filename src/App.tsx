@@ -7,6 +7,7 @@ import Filter from "./components/Filter/Filter";
 import Form from "./components/Form/Form";
 import TaskList from "./components/TaskList/TaskList";
 import StatusFilter from "./components/StatusFilter/StatusFilter";
+import TaskCounter from "./components/TaskCounter/TaskCounter";
 
 function App() {
   // Ініціалізація tasks
@@ -63,6 +64,8 @@ function App() {
         />
         <h1 className="title">Add a new task or delete the completed one:</h1>
         <StatusFilter />
+
+        <TaskCounter />
 
         <div className="inputWrapper">
           <Form onAdd={addTask} />
