@@ -1,22 +1,32 @@
+import { useDispatch } from "react-redux";
 import css from "./Form.module.css";
 import { IoAddCircleOutline } from "react-icons/io5";
+import { addTask } from "../../redux/tasksSlice";
+import { FormEvent } from "react";
 
 type FormProps = {
   onAdd: (task: { id: string | number; text: string }) => void;
 };
 
-export default function Form({ onAdd }: FormProps) {
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-    const taskText = e.target.elements.text.value; // доступ до значення поля
-    if (taskText.trim()) {
-      // перевірка, чи поле не є порожнім
-      onAdd({
-        id: Date.now(),
-        text: taskText,
-      });
-      e.target.reset();
-    }
+export default function Form() {
+  const dispatch = useDispatch();
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget as HTMLFormElement;
+    const textInput = form.elements.namedItem("text") as HTMLInputElement;
+
+    const text = textInput.value.trim();
+    if (text === "") return;
+
+    const newTask = {
+      id: Date.now(),
+      text,
+      completed: false,
+    };
+
+    dispatch(addTask(newTask));
+    form.reset();
   };
 
   return (

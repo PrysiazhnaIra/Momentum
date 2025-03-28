@@ -27,8 +27,14 @@ const tasksSlice = createSlice({
     deleteTask: (state, action: PayloadAction<string | number>) => {
       state.items = state.items.filter((task) => task.id !== action.payload); // фільтруємо завдання за id
     },
+    toggleCompleted: (state, action: PayloadAction<string | number>) => {
+      const task = state.items.find((task) => task.id === action.payload);
+      if (task) {
+        task.completed = !task.completed; // Перемикаємо стан
+      }
+    },
   },
 });
 
-export const { addTask, deleteTask } = tasksSlice.actions; // Імпортуємо action creators
+export const { addTask, deleteTask, toggleCompleted } = tasksSlice.actions; // Імпортуємо action creators
 export default tasksSlice.reducer; // Експортуємо редюсер
