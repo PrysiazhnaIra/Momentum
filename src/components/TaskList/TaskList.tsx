@@ -17,16 +17,18 @@ type Task = {
 
 const getVisibleTasks = (
   tasks: Task[],
-  statusFilter: "active" | "completed" | "all"
+  statusFilter: "active" | "completed" | "all",
+  textFilter: string
 ): Task[] => {
-  switch (statusFilter) {
-    case "active":
-      return tasks.filter((task) => !task.completed);
-    case "completed":
-      return tasks.filter((task) => task.completed);
-    default:
-      return tasks;
-  }
+  return tasks
+    .filter((task) => {
+      if (statusFilter === "active") return !task.completed;
+      if (statusFilter === "completed") return task.completed;
+      return true;
+    })
+    .filter((task) =>
+      task.text.toLowerCase().includes(textFilter.toLowerCase())
+    );
 };
 
 export default function TaskList() {
@@ -37,9 +39,10 @@ export default function TaskList() {
 
   //Отримуємо значення фільтра із стану Redux
   const statusFilter = useSelector((state: RootState) => state.filters.status);
+  const textFilter = useSelector((state: RootState) => state.filters.text);
 
   //Обчислюємо масив завдань, які необхідно відображати в інтерфейсі
-  const visibleTasks = getVisibleTasks(tasks, statusFilter);
+  const visibleTasks = getVisibleTasks(tasks, statusFilter, textFilter);
 
   // Функція для видалення завдання
   const handleDelete = (id: string | number) => {

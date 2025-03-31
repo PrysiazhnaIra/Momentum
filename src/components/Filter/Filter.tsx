@@ -1,21 +1,25 @@
+import { useDispatch, useSelector } from "react-redux";
 import css from "./Filter.module.css";
-import { CiSearch } from "react-icons/ci";
+import { RootState } from "../../redux/store";
+import { setTextFilter } from "../../redux/filtersSlice";
 
 type FilterProps = {
   value: string;
   onFilter: (filterText: string) => void;
 };
 
-export default function Filter({ value, onFilter }: FilterProps) {
+export default function Filter() {
+  const dispatch = useDispatch();
+  const textFilter = useSelector((state: RootState) => state.filters.text);
+
   return (
     <div className={css.inputContainer}>
       <input
         type="text"
-        value={value}
+        value={textFilter}
         placeholder="Search your task..."
-        onChange={(e) => onFilter(e.target.value)}
+        onChange={(e) => dispatch(setTextFilter(e.target.value))}
       />
-      {!value && <CiSearch className={css.searchIcon} />}
     </div>
   );
 }
