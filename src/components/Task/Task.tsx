@@ -26,12 +26,15 @@ export default function Task({ task: { id, text, completed } }: TaskProps) {
   return (
     <>
       <div className={css.container}>
-        <input
-          type="checkbox"
-          className={css.checkbox}
-          checked={completed}
-          onChange={handleToggle}
-        />
+        <label className={css.checkboxWrapper}>
+          <input
+            type="checkbox"
+            className={css.hiddenCheckbox}
+            checked={completed}
+            onChange={handleToggle}
+          />
+          <span className={css.customCheckbox}></span>
+        </label>
         <p className={css.text}>{text}</p>
         <button className={css.btn} onClick={handleDelete}>
           <RiDeleteBin5Line className={css.dltIcon} />

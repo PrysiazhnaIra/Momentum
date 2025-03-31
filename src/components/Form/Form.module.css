@@ -4,12 +4,16 @@
   justify-content: space-between;
   background-color: #aad19b4f;
   border-radius: 10px;
+  position: relative;
 }
 
 .addIcon {
   width: 30px;
   height: 30px;
   color: #477958;
+  position: absolute;
+  top: 14%;
+  right: 4%;
 }
 
 .field {
@@ -20,10 +24,10 @@
 .btn {
   border: none;
   background-color: transparent;
-  transition: all 0.2s linear;
 }
 
-.btn:hover,
-.btn:focus {
-  transform: scale(1.5);
+.addIcon:hover,
+.addIcon:focus {
+  color: #79475e96;
+  z-index: 1000;
 }

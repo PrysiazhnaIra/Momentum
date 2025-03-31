@@ -1,43 +1,36 @@
-import { useState } from "react";
 import s from "./StatusFilter.module.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
+import { setStatusFilter } from "../../redux/filtersSlice";
 
 export default function StatusFilter() {
-  // const [activeFilter, setActiveFilter] = useState("All");
-
-  // const handleToggle = (filter: string) => {
-  //   setActiveFilter(filter);
-  // };
-
+  const dispatch = useDispatch();
   const filter = useSelector((state: RootState) => state.filters.status);
 
   return (
     <div className={s.btnWrapper}>
       <h3>Filter your tasks:</h3>
 
-      <button>All {filter === "all" && "is active"}</button>
-      <button>Active {filter === "active" && "is active"}</button>
-      <button>Completed {filter === "completed" && "is active"}</button>
-
-      {/* <button
-        className={`${s.btn} ${activeFilter === "All" ? s.activeBtn : ""} `}
-        onClick={() => handleToggle("All")}
+      <button
+        className={filter === "all" ? s.active : s.btn}
+        onClick={() => dispatch(setStatusFilter("all"))}
       >
         All
       </button>
+
       <button
-        className={`${s.btn} ${activeFilter === "In progress" ? s.activeBtn : ""} `}
-        onClick={() => handleToggle("In progress")}
+        className={filter === "active" ? s.active : s.btn}
+        onClick={() => dispatch(setStatusFilter("active"))}
       >
-        In progress
+        Active
       </button>
+
       <button
-        className={`${s.btn} ${activeFilter === "Done" ? s.activeBtn : ""} `}
-        onClick={() => handleToggle("Done")}
+        className={filter === "completed" ? s.active : s.btn}
+        onClick={() => dispatch(setStatusFilter("completed"))}
       >
-        Done
-      </button> */}
+        Completed
+      </button>
     </div>
   );
 }
