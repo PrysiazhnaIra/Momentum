@@ -11,7 +11,13 @@ type TasksState = {
 };
 
 const initialState: TasksState = {
-  items: [],
+  items: [
+    { id: 0, text: "Learn HTML and CSS", completed: true },
+    { id: 1, text: "Get good at JavaScript", completed: true },
+    { id: 2, text: "Master React", completed: true },
+    { id: 3, text: "Discover Redux", completed: false },
+    { id: 4, text: "Build amazing apps", completed: false },
+  ],
 };
 
 //Reducer — це чиста функція, яка отримує поточний стан (state) і дію (action) та повертає новий стан (state). Редюсер не змінює існуючий стан, а створює новий, на основі старого та виконаної дії.
