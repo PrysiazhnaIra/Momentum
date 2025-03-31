@@ -1,7 +1,14 @@
 import { useDispatch } from "react-redux";
 import css from "./Task.module.css";
 import { RiDeleteBin5Line } from "react-icons/ri";
-import { deleteTask, toggleCompleted } from "../../redux/tasksSlice";
+import { MdEdit } from "react-icons/md";
+import { CiSaveDown1 } from "react-icons/ci";
+import {
+  deleteTask,
+  toggleCompleted,
+  updateTask,
+} from "../../redux/tasksSlice";
+import { useState } from "react";
 
 type TaskProps = {
   task: {
@@ -15,12 +22,24 @@ type TaskProps = {
 export default function Task({ task: { id, text, completed } }: TaskProps) {
   const dispatch = useDispatch();
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [newText, setNewText] = useState(text);
+
   const handleToggle = () => {
     dispatch(toggleCompleted(id));
   };
 
   const handleDelete = () => {
     dispatch(deleteTask(id));
+  };
+
+  const handleEdit = () => setIsEditing(true);
+
+  const handleSave = () => {
+    console.log("Saving task:", id, newText, completed);
+
+    dispatch(updateTask({ id, text: newText, completed }));
+    setIsEditing(false);
   };
 
   return (
@@ -35,7 +54,27 @@ export default function Task({ task: { id, text, completed } }: TaskProps) {
           />
           <span className={css.customCheckbox}></span>
         </label>
-        <p className={css.text}>{text}</p>
+        {isEditing ? (
+          <input
+            type="text"
+            className={css.input}
+            value={newText}
+            onChange={(e) => setNewText(e.target.value)}
+          />
+        ) : (
+          <p className={css.text}>{text}</p>
+        )}
+
+        {isEditing ? (
+          <button className={css.btn} onClick={handleSave}>
+            <CiSaveDown1 className={css.editIcon} />
+          </button>
+        ) : (
+          <button className={css.btn} onClick={handleEdit}>
+            <MdEdit className={css.editIcon} />
+          </button>
+        )}
+
         <button className={css.btn} onClick={handleDelete}>
           <RiDeleteBin5Line className={css.dltIcon} />
         </button>

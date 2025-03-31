@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import css from "./Form.module.css";
-import { IoAddCircleOutline } from "react-icons/io5";
+import { IoMdAdd } from "react-icons/io";
 import { addTask } from "../../redux/tasksSlice";
 import { FormEvent } from "react";
 
@@ -38,7 +38,7 @@ export default function Form() {
         placeholder="Enter your task..."
       />
       <button type="submit" className={css.btn}>
-        <IoAddCircleOutline className={css.addIcon} />
+        <IoMdAdd className={css.addIcon} />
       </button>
     </form>
   );

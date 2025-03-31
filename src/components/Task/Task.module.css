@@ -11,6 +11,10 @@
   transform: scale(1.5);
 }
 
+.editIcon {
+  color: rgb(41, 91, 49);
+}
+
 .dltIcon {
   color: #d27979;
 }

@@ -23,12 +23,19 @@ const initialState: TasksState = {
 //Reducer — це чиста функція, яка отримує поточний стан (state) і дію (action) та повертає новий стан (state). Редюсер не змінює існуючий стан, а створює новий, на основі старого та виконаної дії.
 
 const tasksSlice = createSlice({
-  name: "tasks", // Назва цієї частини стейту
-  initialState, // Початковий стан цього редюсера.
+  name: "tasks",
+  initialState,
   reducers: {
     //об'єкт, що містить методи для кожної дії (action).
     addTask: (state, action: PayloadAction<Task>) => {
       state.items.push(action.payload); // додаємо нове завдання до масиву
+    },
+    updateTask: (state, action: PayloadAction<Task>) => {
+      const { id, text } = action.payload;
+      const task = state.items.find((task) => task.id === id);
+      if (task) {
+        task.text = text;
+      }
     },
     deleteTask: (state, action: PayloadAction<string | number>) => {
       state.items = state.items.filter((task) => task.id !== action.payload); // фільтруємо завдання за id
@@ -42,5 +49,9 @@ const tasksSlice = createSlice({
   },
 });
 
-export const { addTask, deleteTask, toggleCompleted } = tasksSlice.actions; // Імпортуємо action creators
-export default tasksSlice.reducer; // Експортуємо редюсер
+// Експортуємо фабрики екшенів
+export const { addTask, updateTask, deleteTask, toggleCompleted } =
+  tasksSlice.actions;
+
+// Експортуємо редюсер слайсу
+export default tasksSlice.reducer;
