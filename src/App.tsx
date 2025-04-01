@@ -8,6 +8,8 @@ import Form from "./components/Form/Form";
 import TaskList from "./components/TaskList/TaskList";
 import StatusFilter from "./components/StatusFilter/StatusFilter";
 import TaskCounter from "./components/TaskCounter/TaskCounter";
+import CategoryFilter from "./components/CategoryFilter/CategoryFilter";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   // Ініціалізація tasks
@@ -21,7 +23,7 @@ function App() {
     return window.localStorage.getItem("backgroundColor") || "#92d192";
   });
 
-  const [filter, setFilter] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   // Збереження tasks в localStorage при їх зміні
   useEffect(() => {
@@ -57,6 +59,7 @@ function App() {
 
   return (
     <div className="container">
+      <Toaster />
       <div>
         <Background
           currentColor={currentColor}
@@ -68,8 +71,14 @@ function App() {
         <Form />
         <SearchFilter />
       </div>
-      <StatusFilter />
-      <TaskList />
+      <div className="filterWrapper">
+        <StatusFilter />
+        <CategoryFilter
+          selectedCategory={selectedCategory}
+          onCategoryChange={setSelectedCategory}
+        />
+      </div>
+      <TaskList selectedCategory={selectedCategory} />
       <p
         className="footer"
         style={{

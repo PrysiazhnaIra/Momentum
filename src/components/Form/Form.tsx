@@ -3,6 +3,7 @@ import css from "./Form.module.css";
 import { IoMdAdd } from "react-icons/io";
 import { addTask } from "../../redux/tasksSlice";
 import { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
 
 type FormProps = {
   onAdd: (task: { id: string | number; text: string }) => void;
@@ -33,6 +34,13 @@ export default function Form() {
     form.reset();
   };
 
+  const handleAdd = () => {
+    if (!text.trim()) {
+      toast.custom(<div className={css.notification}>Enter text to add!</div>);
+      return;
+    }
+  };
+
   return (
     <form className={css.form} onSubmit={handleSubmit}>
       <select
@@ -53,7 +61,7 @@ export default function Form() {
           placeholder="Enter your new task..."
         />
 
-        <button type="submit" className={css.btn}>
+        <button type="submit" className={css.btn} onClick={handleAdd}>
           <IoMdAdd className={css.addIcon} />
         </button>
       </div>

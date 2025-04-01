@@ -15,6 +15,7 @@ type TaskProps = {
     id: string | number;
     text: string;
     completed: boolean;
+    category: string;
   };
   onDelete: (id: string | number) => void;
 };
@@ -36,9 +37,7 @@ export default function Task({ task: { id, text, completed } }: TaskProps) {
   const handleEdit = () => setIsEditing(true);
 
   const handleSave = () => {
-    console.log("Saving task:", id, newText, completed);
-
-    dispatch(updateTask({ id, text: newText, completed }));
+    dispatch(updateTask({ id, text: newText, completed, category }));
     setIsEditing(false);
   };
 

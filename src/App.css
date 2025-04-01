@@ -12,6 +12,12 @@
   justify-content: space-between;
 }
 
+.filterWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
 .title {
   margin-top: 20px;
   margin-bottom: 20px;

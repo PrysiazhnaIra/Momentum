@@ -3,11 +3,9 @@ import Task from "../Task/Task";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { deleteTask } from "../../redux/tasksSlice";
-import { useState } from "react";
 
 type TaskListProps = {
-  tasks: { id: string | number; text: string }[];
-  onDelete: (id: string | number) => void;
+  selectedCategory: string;
 };
 
 type Task = {
@@ -37,7 +35,7 @@ const getVisibleTasks = (
     );
 };
 
-export default function TaskList() {
+export default function TaskList({ selectedCategory }: TaskListProps) {
   const dispatch = useDispatch();
 
   //Отримуємо масив завдань із стану Redux
@@ -46,12 +44,6 @@ export default function TaskList() {
   //Отримуємо значення фільтра із стану Redux
   const statusFilter = useSelector((state: RootState) => state.filters.status);
   const textFilter = useSelector((state: RootState) => state.filters.text);
-
-  // Стан для обраної категорії
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  // Отримуємо унікальні категорії
-  const categories = ["All", ...new Set(tasks.map((task) => task.category))];
 
   //Обчислюємо масив завдань, які необхідно відображати в інтерфейсі
   const visibleTasks = getVisibleTasks(
@@ -78,23 +70,6 @@ export default function TaskList() {
 
   return (
     <div className={css.taskList}>
-      <div className={css.btnWrapper}>
-        {/* Фільтр по категоріях */}
-        <h3 className={css.title}>Filter your tasks by categorieory:</h3>
-        <div className={css.filterButtons}>
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={selectedCategory === category ? css.active : css.btn}
-              onClick={() => setSelectedCategory(category)}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Відображення завдань за категоріями */}
       {Object.keys(groupedTasks).map((category) => (
         <div key={category} className={css.category}>
           <h3 className={css.title}>{category}</h3>
