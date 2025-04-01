@@ -13,8 +13,14 @@ export default function CategoryFilter({
 }: TaskFilterProps) {
   const tasks = useSelector((state: RootState) => state.tasks.items);
 
+  // Фіксований список категорій
+  const defaultCategories = ["All", "Study", "Work", "Household"];
+
+  // Отримуємо унікальні категорії із задач
+  const taskCategories = new Set(tasks.map((task) => task.category));
+
   // Отримуємо унікальні категорії
-  const categories = ["All", ...new Set(tasks.map((task) => task.category))];
+  const categories = [...new Set([...defaultCategories, ...taskCategories])];
 
   return (
     <div className={s.filterWrapper}>
