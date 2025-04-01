@@ -8,14 +8,17 @@
 
 .title {
   display: flex;
+  justify-content: flex-end;
 }
 
 .filterButtons {
   display: flex;
+  justify-content: flex-end;
   gap: 5px;
 }
 
 .btn {
+  font-size: 14px;
   padding: 10px 15px;
   cursor: pointer;
   border: none;
