@@ -60,23 +60,26 @@ function App() {
   return (
     <div className="container">
       <Toaster />
-      <div>
-        <Background
-          currentColor={currentColor}
-          onChangeColor={handleChangeColor}
-        />
-        <h1 className="title">Enjoy your progress:</h1>
+      <div className="topWrapper">
+        <div>
+          <Background
+            currentColor={currentColor}
+            onChangeColor={handleChangeColor}
+          />
+          <h1 className="title">Enjoy your progress:</h1>
 
-        <TaskCounter />
-        <Form />
-        <SearchFilter />
-      </div>
-      <div className="filterWrapper">
-        <StatusFilter />
-        <CategoryFilter
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-        />
+          <TaskCounter />
+          <Form />
+          <SearchFilter />
+        </div>
+        <div className="verticalSeparator"></div>
+        <div className="filterWrapper">
+          <StatusFilter />
+          <CategoryFilter
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
+        </div>
       </div>
       <TaskList selectedCategory={selectedCategory} />
       <p

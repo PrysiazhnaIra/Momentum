@@ -4,6 +4,7 @@ import { IoMdAdd } from "react-icons/io";
 import { addTask } from "../../redux/tasksSlice";
 import { FormEvent, useState } from "react";
 import toast from "react-hot-toast";
+import { IoIosArrowDown } from "react-icons/io";
 
 type FormProps = {
   onAdd: (task: { id: string | number; text: string }) => void;
@@ -52,6 +53,7 @@ export default function Form() {
         <option value="Work">Work</option>
         <option value="Homehold">Homehold</option>
       </select>
+      <IoIosArrowDown className={css.selectArrow} />
       <div className={css.inputsWrapper}>
         <input
           className={css.field}

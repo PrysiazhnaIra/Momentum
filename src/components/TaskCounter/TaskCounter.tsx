@@ -29,7 +29,7 @@ export default function TaskCounter() {
   const progress = totalTasks ? (completedTasks / totalTasks) * 100 : 0;
 
   return (
-    <div>
+    <div className={s.progressWrapper}>
       {/* <p>Active: {count.active}</p>
       <p>Completed: {count.completed}</p> */}
       <progress className={s.progress} value={progress} max="100"></progress>
