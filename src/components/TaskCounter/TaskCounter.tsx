@@ -32,7 +32,6 @@ export default function TaskCounter() {
     <div>
       {/* <p>Active: {count.active}</p>
       <p>Completed: {count.completed}</p> */}
-      <h3>Progress:</h3>
       <progress className={s.progress} value={progress} max="100"></progress>
       <p>
         {completedTasks} / {totalTasks} tasks completed

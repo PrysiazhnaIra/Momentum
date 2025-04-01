@@ -3,7 +3,7 @@ import "modern-normalize";
 import initialTasks from "./data/tasks.json";
 import { useEffect, useState } from "react";
 import Background from "./components/Background/Background";
-import Filter from "./components/Filter/Filter";
+import SearchFilter from "./components/SearchFilter/SearchFilter";
 import Form from "./components/Form/Form";
 import TaskList from "./components/TaskList/TaskList";
 import StatusFilter from "./components/StatusFilter/StatusFilter";
@@ -37,21 +37,21 @@ function App() {
     setCurrentColor(color);
   };
 
-  const addTask = (newTask: any) => {
-    setTasks((prev: any) => {
-      return [...prev, newTask];
-    });
-  };
+  // const addTask = (newTask: any) => {
+  //   setTasks((prev: any) => {
+  //     return [...prev, newTask];
+  //   });
+  // };
 
-  const deleteTask = (taskId: any) => {
-    setTasks((prev: any) => {
-      return prev.filter((task: any) => task.id != taskId);
-    });
-  };
+  // const deleteTask = (taskId: any) => {
+  //   setTasks((prev: any) => {
+  //     return prev.filter((task: any) => task.id != taskId);
+  //   });
+  // };
 
-  const filteredTasks = tasks.filter((task: any) =>
-    task.text.toLocaleLowerCase().includes(filter.toLowerCase())
-  );
+  // const filteredTasks = tasks.filter((task: any) =>
+  //   task.text.toLocaleLowerCase().includes(filter.toLowerCase())
+  // );
 
   const currentYear = new Date().getFullYear();
 
@@ -62,17 +62,14 @@ function App() {
           currentColor={currentColor}
           onChangeColor={handleChangeColor}
         />
-        <h1 className="title">Add a new task or delete the completed one:</h1>
-        <StatusFilter />
+        <h1 className="title">Enjoy your progress:</h1>
 
         <TaskCounter />
-
-        <div className="inputWrapper">
-          <Form onAdd={addTask} />
-          <Filter value={filter} onFilter={setFilter} />
-        </div>
-        <TaskList tasks={filteredTasks} onDelete={deleteTask} />
+        <Form />
+        <SearchFilter />
       </div>
+      <StatusFilter />
+      <TaskList />
       <p
         className="footer"
         style={{
