@@ -13,21 +13,43 @@ type TasksState = {
 
 const initialState: TasksState = {
   items: [
-    // { id: 0, text: "Learn HTML and CSS", completed: true, category: "Study" },
-    // {
-    //   id: 1,
-    //   text: "Get good at JavaScript",
-    //   completed: true,
-    //   category: "Study",
-    // },
-    // { id: 2, text: "Go to shop", completed: true, category: "Household" },
-    // { id: 3, text: "Complete project", completed: false, category: "Work" },
-    // {
-    //   id: 4,
-    //   text: "Purchase flowers",
-    //   completed: false,
-    //   category: "Household",
-    // },
+    { id: 0, text: "Learn Redux", completed: true, category: "Study" },
+    { id: 1, text: "Learn English", completed: true, category: "Study" },
+    { id: 2, text: "Learn React Router", completed: true, category: "Study" },
+    { id: 3, text: "Complete hw", completed: false, category: "Study" },
+    {
+      id: 4,
+      text: "Read and translate text from the book Advanced English",
+      completed: false,
+      category: "Study",
+    },
+    { id: 5, text: "Testing calendar", completed: true, category: "Work" },
+    {
+      id: 6,
+      text: "Testing new mobile app",
+      completed: true,
+      category: "Work",
+    },
+    {
+      id: 7,
+      text: "Create design for new calendar",
+      completed: false,
+      category: "Work",
+    },
+    {
+      id: 8,
+      text: "Styles and adaptation for calendar",
+      completed: false,
+      category: "Work",
+    },
+    { id: 9, text: "Clean house", completed: false, category: "Household" },
+    { id: 10, text: "Bake cake", completed: false, category: "Household" },
+    {
+      id: 11,
+      text: "Fire meal",
+      completed: false,
+      category: "Household",
+    },
   ],
 };
 
