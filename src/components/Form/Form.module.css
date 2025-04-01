@@ -1,11 +1,12 @@
 .form {
   width: 100%;
   margin-bottom: 20px;
+  position: relative;
   /* display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
-  position: relative;
+  
   flex-direction: column; */
 }
 
@@ -14,8 +15,8 @@
   height: 20px;
   color: #477958;
   position: absolute;
-  top: 21%;
-  right: 6%;
+  top: 68%;
+  right: 3%;
 }
 
 .inputsWrapper {
@@ -57,4 +58,13 @@
   outline: none;
   width: 100%;
   margin-bottom: 20px;
+}
+.notification {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  background-color: #477958bf;
+  color: white;
+  border-radius: 30px;
 }
