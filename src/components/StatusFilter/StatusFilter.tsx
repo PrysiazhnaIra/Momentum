@@ -8,29 +8,30 @@ export default function StatusFilter() {
   const filter = useSelector((state: RootState) => state.filters.status);
 
   return (
-    <div className={s.btnWrapper}>
-      <h3>Filter your tasks:</h3>
+    <div className={s.wrapper}>
+      <h3 className={s.title}>Filter your tasks by status:</h3>
+      <div className={s.btnWrapper}>
+        <button
+          className={filter === "all" ? s.active : s.btn}
+          onClick={() => dispatch(setStatusFilter("all"))}
+        >
+          All
+        </button>
 
-      <button
-        className={filter === "all" ? s.active : s.btn}
-        onClick={() => dispatch(setStatusFilter("all"))}
-      >
-        All
-      </button>
+        <button
+          className={filter === "active" ? s.active : s.btn}
+          onClick={() => dispatch(setStatusFilter("active"))}
+        >
+          Active
+        </button>
 
-      <button
-        className={filter === "active" ? s.active : s.btn}
-        onClick={() => dispatch(setStatusFilter("active"))}
-      >
-        Active
-      </button>
-
-      <button
-        className={filter === "completed" ? s.active : s.btn}
-        onClick={() => dispatch(setStatusFilter("completed"))}
-      >
-        Completed
-      </button>
+        <button
+          className={filter === "completed" ? s.active : s.btn}
+          onClick={() => dispatch(setStatusFilter("completed"))}
+        >
+          Completed
+        </button>
+      </div>
     </div>
   );
 }

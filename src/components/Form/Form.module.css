@@ -1,9 +1,12 @@
 .form {
-  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  /* display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 10px;
   position: relative;
+  flex-direction: column; */
 }
 
 .addIcon {
@@ -13,6 +16,11 @@
   position: absolute;
   top: 21%;
   right: 6%;
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .field {
@@ -29,4 +37,24 @@
 .addIcon:focus {
   color: #79475e96;
   z-index: 1000;
+}
+
+.selectWrapper {
+  display: flex;
+  align-items: center;
+  border: none;
+  background-color: #aad19b5c;
+  padding: 5px 25px 5px 40px;
+
+  transition: 0.5s;
+  color: black;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  border: none;
+  height: 40px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
 }

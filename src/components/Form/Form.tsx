@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import css from "./Form.module.css";
 import { IoMdAdd } from "react-icons/io";
 import { addTask } from "../../redux/tasksSlice";
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 type FormProps = {
   onAdd: (task: { id: string | number; text: string }) => void;
@@ -10,6 +10,9 @@ type FormProps = {
 
 export default function Form() {
   const dispatch = useDispatch();
+
+  const [text, setText] = useState("");
+  const [category, setCategory] = useState("Study");
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,6 +26,7 @@ export default function Form() {
       id: Date.now(),
       text,
       completed: false,
+      category,
     };
 
     dispatch(addTask(newTask));
@@ -31,15 +35,28 @@ export default function Form() {
 
   return (
     <form className={css.form} onSubmit={handleSubmit}>
-      <input
-        className={css.field}
-        type="text"
-        name="text"
-        placeholder="Enter your task..."
-      />
-      <button type="submit" className={css.btn}>
-        <IoMdAdd className={css.addIcon} />
-      </button>
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+        className={css.selectWrapper}
+      >
+        <option value="Study">Study</option>
+        <option value="Work">Work</option>
+        <option value="Homehold">Homehold</option>
+      </select>
+      <div className={css.inputsWrapper}>
+        <input
+          className={css.field}
+          type="text"
+          name="text"
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Enter your new task..."
+        />
+
+        <button type="submit" className={css.btn}>
+          <IoMdAdd className={css.addIcon} />
+        </button>
+      </div>
     </form>
   );
 }

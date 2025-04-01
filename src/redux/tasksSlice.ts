@@ -4,6 +4,7 @@ type Task = {
   id: string | number;
   text: string;
   completed: boolean;
+  category: string;
 };
 
 type TasksState = {
@@ -12,11 +13,21 @@ type TasksState = {
 
 const initialState: TasksState = {
   items: [
-    { id: 0, text: "Learn HTML and CSS", completed: true },
-    { id: 1, text: "Get good at JavaScript", completed: true },
-    { id: 2, text: "Master React", completed: true },
-    { id: 3, text: "Discover Redux", completed: false },
-    { id: 4, text: "Build amazing apps", completed: false },
+    { id: 0, text: "Learn HTML and CSS", completed: true, category: "Study" },
+    {
+      id: 1,
+      text: "Get good at JavaScript",
+      completed: true,
+      category: "Study",
+    },
+    { id: 2, text: "Go to shop", completed: true, category: "Household" },
+    { id: 3, text: "Complete project", completed: false, category: "Work" },
+    {
+      id: 4,
+      text: "Purchase flowers",
+      completed: false,
+      category: "Household",
+    },
   ],
 };
 
