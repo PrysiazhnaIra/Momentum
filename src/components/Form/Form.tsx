@@ -51,7 +51,7 @@ export default function Form() {
       >
         <option value="Study">Study</option>
         <option value="Work">Work</option>
-        <option value="Homehold">Homehold</option>
+        <option value="Household">Household</option>
       </select>
       <IoIosArrowDown className={css.selectArrow} />
       <div className={css.inputsWrapper}>
