@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "color": "LightSalmon"
+    "color": "Snow"
   },
   {
     "id": 2,
@@ -21,18 +21,14 @@
   },
   {
     "id": 6,
-    "color": "LightSteelBlue"
+    "color": "Beige"
   },
   {
     "id": 7,
-    "color": "LightSkyBlue"
+    "color": "Lavender"
   },
   {
     "id": 8,
     "color": "LightPink"
-  },
-  {
-    "id": 9,
-    "color": "RosyBrown"
   }
 ]
